@@ -18,20 +18,13 @@
 
 ---
 
-## Introduction
-
-ESC-YOLO-Net is a compact and computationally efficient object detector designed for automated defect inspection on printed circuit boards (PCBs).
-
-The proposed framework is developed from the YOLOv10 architecture by incorporating the Channel Attention (CA) mechanism, the V-CBAM module, and enhanced variants of the C2f and SCDown components. These modifications improve feature representation and help the network concentrate on critical defect regions while preserving a lightweight model structure.
-
-By balancing detection accuracy, architectural simplicity, and computational efficiency, ESC-YOLO-Net is suitable for practical PCB inspection systems and resource-constrained deployment environments.
+## Example of detection results
 
 <p align="center">
   <img src="img_demo.png" width="90%">
 </p>
 
 <p align="center">
-  <em>Visualization of detection results produced by ESC-YOLO-Net and competing models on the TMVR-PCB test set</em>
 </p>
 
 ---
