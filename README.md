@@ -1,12 +1,12 @@
 <div align="center">
 
-# ESC-YOLO-Net
+# CEVE-YOLO
 
-### ESC-YOLO-Net: A Lightweight Framework for Efficient PCB Defect Detection
+### CEVE-YOLO: A Lightweight Framework for Efficient PCB Defect Detection
 
 <p align="center">
   <img src="yolov10s_arch.png" width="90%"><br>
-  <b>Overall Architecture of the Proposed ESC-YOLO-Net</b>
+  <b>Overall Architecture of the Proposed CEVE-YOLO</b>
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 > [!IMPORTANT]
 > Python **3.11** is recommended for running this project.
 >
-> Using Python **3.11.x** helps ensure compatibility among PyTorch, Ultralytics, CUDA, and the custom ESC-YOLO-Net modules.
+> Using Python **3.11.x** helps ensure compatibility among PyTorch, Ultralytics, CUDA, and the custom CEVE-YOLO modules.
 
 ---
 
@@ -43,15 +43,15 @@
 ### Step 1: Create a Conda environment
 
 ```bash
-conda create -n esc-yolo-net python=3.11 -y
-conda activate esc-yolo-net
+conda create -n ceve-yolo python=3.11 -y
+conda activate ceve-yolo
 ```
 
 ### Step 2: Clone the repository
 
 ```bash
-git clone https://github.com/val-utehy/ESC-YOLO-Net.git
-cd ESC-YOLO-Net
+git clone https://github.com/val-utehy/CEVE-YOLO.git
+cd CEVE-YOLO
 ```
 
 > [!NOTE]
@@ -76,7 +76,7 @@ python3.11 --version
 ### Step 1: Create a virtual environment
 
 ```bash
-python3.11 -m venv esc-yolo-net
+python3.11 -m venv ceve-yolo
 ```
 
 ### Step 2: Activate the environment
@@ -84,19 +84,19 @@ python3.11 -m venv esc-yolo-net
 Linux or macOS:
 
 ```bash
-source esc-yolo-net/bin/activate
+source ceve-yolo/bin/activate
 ```
 
 Windows Command Prompt:
 
 ```bash
-esc-yolo-net\Scripts\activate
+ceve-yolo\Scripts\activate
 ```
 
 Windows PowerShell:
 
 ```powershell
-esc-yolo-net\Scripts\Activate.ps1
+ceve-yolo\Scripts\Activate.ps1
 ```
 
 ### Step 3: Install Ultralytics
@@ -129,7 +129,7 @@ python -c "import torch; print('PyTorch:', torch.__version__); print('CUDA avail
 
 # Validation on the TMVR-PCB Test Set
 
-ESC-YOLO-Net can be evaluated in two different ways.
+CEVE-YOLO can be evaluated in two different ways.
 
 ---
 
@@ -148,7 +148,7 @@ import torch
 from ultralytics import YOLO
 
 
-weights_path = "esc_yolo_best.pt"
+weights_path = "ceve_yolo_best.pt"
 data_path = "data_23_04_26.yaml"
 
 device = 0 if torch.cuda.is_available() else "cpu"
@@ -171,7 +171,7 @@ recall = float(metrics.box.mr)
 f1_score = 2 * precision * recall / (precision + recall + 1e-9)
 
 print("=" * 60)
-print("ESC-YOLO-Net Evaluation Results")
+print("CEVE-YOLO Evaluation Results")
 print("=" * 60)
 print(f"mAP@0.50:      {metrics.box.map50:.4f}")
 print(f"mAP@0.50:0.95: {metrics.box.map:.4f}")
@@ -181,7 +181,7 @@ print(f"F1-score:      {f1_score:.4f}")
 print("=" * 60)
 ```
 
-The `modules` package must be imported before loading the checkpoint so that the custom ESC-YOLO-Net components are registered correctly.
+The `modules` package must be imported before loading the checkpoint so that the custom CEVE-YOLO components are registered correctly.
 
 ---
 
@@ -197,7 +197,7 @@ Example with custom parameters:
 
 ```bash
 python eval.py \
-  --weights esc_yolo_best.pt \
+  --weights ceve_yolo_best.pt \
   --data path/to/data.yaml \
   --split test \
   --imgsz 640 800 \
@@ -217,7 +217,7 @@ python eval.py --imgsz 640 --no-tta
 
 | Argument | Default | Description |
 |---|---:|---|
-| `--weights` | `esc_yolo_best.pt` | Path to the model checkpoint |
+| `--weights` | `ceve_yolo_best.pt` | Path to the model checkpoint |
 | `--data` | `data_23_04_26.yaml` | Path to the dataset YAML file |
 | `--split` | `test` | Dataset split: `train`, `val`, or `test` |
 | `--imgsz` | `640 800` | One or more evaluation image sizes |
@@ -231,7 +231,7 @@ python eval.py --imgsz 640 --no-tta
 
 # Inference
 
-ESC-YOLO-Net inference can also be executed through either the Python API or the provided command-line script.
+CEVE-YOLO inference can also be executed through either the Python API or the provided command-line script.
 
 ---
 
@@ -248,7 +248,7 @@ import torch
 from ultralytics import YOLO
 
 
-weights_path = "esc_yolo_best.pt"
+weights_path = "ceve_yolo_best.pt"
 source_path = "path/to/image_or_folder"
 
 device = 0 if torch.cuda.is_available() else "cpu"
@@ -299,7 +299,7 @@ Example with custom parameters:
 
 ```bash
 python inference.py \
-  --weights esc_yolo_best.pt \
+  --weights ceve_yolo_best.pt \
   --source path/to/pcb_images \
   --imgsz 640 \
   --conf 0.25 \
@@ -312,7 +312,7 @@ python inference.py \
 
 | Argument | Default | Description |
 |---|---:|---|
-| `--weights` | `esc_yolo_best.pt` | Path to the model checkpoint |
+| `--weights` | `ceve_yolo_best.pt` | Path to the model checkpoint |
 | `--source` | Required | Path to an image, image directory, or video |
 | `--imgsz` | `640` | Input image size |
 | `--conf` | `0.25` | Confidence threshold |
@@ -327,9 +327,9 @@ python inference.py \
 
 # Model Export
 
-The ESC-YOLO-Net checkpoint can be exported to several deployment formats through the Ultralytics export interface.
+The CEVE-YOLO checkpoint can be exported to several deployment formats through the Ultralytics export interface.
 
-Because ESC-YOLO-Net contains custom modules, the `modules` package must be imported before the checkpoint is loaded.
+Because CEVE-YOLO contains custom modules, the `modules` package must be imported before the checkpoint is loaded.
 
 ---
 
@@ -345,7 +345,7 @@ import modules
 from ultralytics import YOLO
 
 
-model = YOLO("esc_yolo_best.pt")
+model = YOLO("ceve_yolo_best.pt")
 
 model.export(
     format="onnx",
@@ -353,7 +353,7 @@ model.export(
     simplify=True
 )
 
-print("ESC-YOLO-Net was exported to ONNX successfully.")
+print("CEVE-YOLO was exported to ONNX successfully.")
 ```
 
 ---
