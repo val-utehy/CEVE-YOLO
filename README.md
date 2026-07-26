@@ -1,6 +1,6 @@
 <div align="center">
 
-# ESC-YOLO-Net
+# CEVE-YOLO
 
 ### ESC-YOLO-Net: A Lightweight Framework for Efficient PCB Defect Detection
 
@@ -21,10 +21,11 @@
 ## Example of detection results
 
 <p align="center">
-  <img src="img_demo.png" width="90%">
+  <img src="img_demo.png" width="90%" alt="Demo">
 </p>
 
 <p align="center">
+  <em>The overall architecture of the proposed CEVE-YOLO. Specifically, the CA, EC2f, V-CBAM, and ESCDown modules are highlighted in pink, red, green, and yellow blocks, respectively.</em>
 </p>
 
 ---
