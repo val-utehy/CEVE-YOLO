@@ -149,7 +149,7 @@ import torch
 from ultralytics import YOLO
 
 
-weights_path = "esc_yolo_best.pt"
+weights_path = "ceve_yolo_best.pt"
 data_path = "data_23_04_26.yaml"
 
 device = 0 if torch.cuda.is_available() else "cpu"
@@ -198,7 +198,7 @@ Example with custom parameters:
 
 ```bash
 python eval.py \
-  --weights esc_yolo_best.pt \
+  --weights ceve_yolo_best.pt \
   --data path/to/data.yaml \
   --split test \
   --imgsz 640 800 \
@@ -218,7 +218,7 @@ python eval.py --imgsz 640 --no-tta
 
 | Argument | Default | Description |
 |---|---:|---|
-| `--weights` | `esc_yolo_best.pt` | Path to the model checkpoint |
+| `--weights` | `ceve_yolo_best.pt` | Path to the model checkpoint |
 | `--data` | `data_23_04_26.yaml` | Path to the dataset YAML file |
 | `--split` | `test` | Dataset split: `train`, `val`, or `test` |
 | `--imgsz` | `640 800` | One or more evaluation image sizes |
@@ -249,7 +249,7 @@ import torch
 from ultralytics import YOLO
 
 
-weights_path = "esc_yolo_best.pt"
+weights_path = "ceve_yolo_best.pt"
 source_path = "path/to/image_or_folder"
 
 device = 0 if torch.cuda.is_available() else "cpu"
@@ -300,7 +300,7 @@ Example with custom parameters:
 
 ```bash
 python inference.py \
-  --weights esc_yolo_best.pt \
+  --weights ceve_yolo_best.pt \
   --source path/to/pcb_images \
   --imgsz 640 \
   --conf 0.25 \
@@ -313,7 +313,7 @@ python inference.py \
 
 | Argument | Default | Description |
 |---|---:|---|
-| `--weights` | `esc_yolo_best.pt` | Path to the model checkpoint |
+| `--weights` | `ceve_yolo_best.pt` | Path to the model checkpoint |
 | `--source` | Required | Path to an image, image directory, or video |
 | `--imgsz` | `640` | Input image size |
 | `--conf` | `0.25` | Confidence threshold |
@@ -346,7 +346,7 @@ import modules
 from ultralytics import YOLO
 
 
-model = YOLO("esc_yolo_best.pt")
+model = YOLO("ceve_yolo_best.pt")
 
 model.export(
     format="onnx",
