@@ -2,11 +2,11 @@
 
 # CEVE-YOLO
 
-### ESC-YOLO-Net: A Lightweight Framework for Efficient PCB Defect Detection
+### CEVE-YOLO: A Lightweight Framework for Efficient PCB Defect Detection
 
 <p align="center">
   <img src="yolov10s_arch.png" width="90%"><br>
-  <b>Overall Architecture of the Proposed ESC-YOLO-Net</b>
+  <b>Overall Architecture of the Proposed CEVE-YOLO</b>
 </p>
 
 <p align="center">
@@ -35,7 +35,7 @@
 > [!IMPORTANT]
 > Python **3.11** is recommended for running this project.
 >
-> Using Python **3.11.x** helps ensure compatibility among PyTorch, Ultralytics, CUDA, and the custom ESC-YOLO-Net modules.
+> Using Python **3.11.x** helps ensure compatibility among PyTorch, Ultralytics, CUDA, and the custom CEVE-YOLO modules.
 
 ---
 
@@ -44,15 +44,15 @@
 ### Step 1: Create a Conda environment
 
 ```bash
-conda create -n esc-yolo-net python=3.11 -y
-conda activate esc-yolo-net
+conda create -n CEVE-YOLO python=3.11 -y
+conda activate CEVE-YOLO
 ```
 
 ### Step 2: Clone the repository
 
 ```bash
-git clone https://github.com/val-utehy/ESC-YOLO-Net.git
-cd ESC-YOLO-Net
+git clone https://github.com/val-utehy/CEVE-YOLO.git
+cd CEVE-YOLO
 ```
 
 > [!NOTE]
@@ -77,7 +77,7 @@ python3.11 --version
 ### Step 1: Create a virtual environment
 
 ```bash
-python3.11 -m venv esc-yolo-net
+python3.11 -m venv CEVE-YOLO
 ```
 
 ### Step 2: Activate the environment
@@ -85,19 +85,19 @@ python3.11 -m venv esc-yolo-net
 Linux or macOS:
 
 ```bash
-source esc-yolo-net/bin/activate
+source CEVE-YOLO/bin/activate
 ```
 
 Windows Command Prompt:
 
 ```bash
-esc-yolo-net\Scripts\activate
+CEVE-YOLO\Scripts\activate
 ```
 
 Windows PowerShell:
 
 ```powershell
-esc-yolo-net\Scripts\Activate.ps1
+CEVE-YOLO\Scripts\Activate.ps1
 ```
 
 ### Step 3: Install Ultralytics
@@ -130,7 +130,7 @@ python -c "import torch; print('PyTorch:', torch.__version__); print('CUDA avail
 
 # Validation on the TMVR-PCB Test Set
 
-ESC-YOLO-Net can be evaluated in two different ways.
+CEVE-YOLO can be evaluated in two different ways.
 
 ---
 
@@ -172,7 +172,7 @@ recall = float(metrics.box.mr)
 f1_score = 2 * precision * recall / (precision + recall + 1e-9)
 
 print("=" * 60)
-print("ESC-YOLO-Net Evaluation Results")
+print("CEVE-YOLO Evaluation Results")
 print("=" * 60)
 print(f"mAP@0.50:      {metrics.box.map50:.4f}")
 print(f"mAP@0.50:0.95: {metrics.box.map:.4f}")
@@ -182,7 +182,7 @@ print(f"F1-score:      {f1_score:.4f}")
 print("=" * 60)
 ```
 
-The `modules` package must be imported before loading the checkpoint so that the custom ESC-YOLO-Net components are registered correctly.
+The `modules` package must be imported before loading the checkpoint so that the custom CEVE-YOLO components are registered correctly.
 
 ---
 
@@ -232,7 +232,7 @@ python eval.py --imgsz 640 --no-tta
 
 # Inference
 
-ESC-YOLO-Net inference can also be executed through either the Python API or the provided command-line script.
+CEVE-YOLO inference can also be executed through either the Python API or the provided command-line script.
 
 ---
 
@@ -328,9 +328,9 @@ python inference.py \
 
 # Model Export
 
-The ESC-YOLO-Net checkpoint can be exported to several deployment formats through the Ultralytics export interface.
+The CEVE-YOLO checkpoint can be exported to several deployment formats through the Ultralytics export interface.
 
-Because ESC-YOLO-Net contains custom modules, the `modules` package must be imported before the checkpoint is loaded.
+Because CEVE-YOLO contains custom modules, the `modules` package must be imported before the checkpoint is loaded.
 
 ---
 
@@ -354,7 +354,7 @@ model.export(
     simplify=True
 )
 
-print("ESC-YOLO-Net was exported to ONNX successfully.")
+print("CEVE-YOLO was exported to ONNX successfully.")
 ```
 
 ---
